@@ -1,0 +1,78 @@
+alter_table_null
+ALTER TABLE students CHANGE COLUMN age age INT(3) NULL AFTER pname;
+
+change_tinyint
+ALTER TABLE students CHANGE COLUMN age ag NOT NULL AFTER pname;
+
+count_pname
+SELECT COUNT(*) FROM students WHERE pname='(NULL)';
+
+create_db_if_utf8
+CREATE DATABASE if NOT EXISTS usersdb DEFAULT CHARSET UTF8 COLLATE UTF8_GENERAL_CI;
+
+create_db
+CREATE DATABASE test;
+
+create_studentsdb
+CREATE DATABASE if NOT EXISTS studentsdb;
+
+create_tab_students
+USE studentsdb;
+CREATE TABLE if NOT EXISTS students(id INT PRIMARY KEY AUTO_INCREMENT, surname VARCHAR(50) NOT NULL, pname VARCHAR(50) NOT NULL,age INT(3), pgroup INT(4));
+
+create_table_if_users
+USE usersdb;
+CREATE TABLE if NOT EXISTS users
+(
+   id INT PRIMARY KEY AUTO_INCREMENT, 
+   surname VARCHAR(50) NOT NULL, 
+	pname VARCHAR (50) NOT NULL,
+	age INT(3) NOT NULL,
+	activated INT(1) DEFAULT 0
+);
+
+delete_where
+DELETE FROM students WHERE pgroup=2;
+
+drop_database
+DROP DATABASE if EXISTS testdb;
+
+drop_db_if
+DROP DATABASE if EXISTS test;
+
+drop_table
+USE testdb;
+DROP TABLE if EXISTS testtable;
+
+insert
+INSERT INTO students(surname, pname, age, pgroup) VALUES('Surname1', 'Name1', 10, 1);
+
+select_all
+SELECT * FROM students;
+
+select_count
+SELECT COUNT(*) FROM students WHERE age>=10;
+
+select_some_cols
+SELECT surname, pname, age FROM students;
+
+select_where_and
+SELECT * from students WHERE age >=10 AND pgroup=1;
+
+select_where_equals
+SELECT * from students WHERE pgroup=1;
+
+select_where_more
+SELECT * from students WHERE age>10;
+
+select_where_or
+SELECT * from students WHERE age >10 OR age=18;
+
+update_group
+UPDATE students SET students.pgroup='2';
+
+update_where
+UPDATE students SET students.surname='NewSurname' WHERE id=1;
+
+use
+USE usersdb;
